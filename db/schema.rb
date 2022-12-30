@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_133759) do
-  create_table "directors", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_191819) do
+  create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "directors", force: :cascade do |t|
+    t.string "name"
+    t.integer "country_id", null: false
+    t.datetime "birthdate"
+    t.integer "genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_directors_on_country_id"
+    t.index ["genre_id"], name: "index_directors_on_genre_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -27,18 +38,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_133759) do
     t.string "title"
     t.integer "year"
     t.text "synopsis"
-    t.string "country"
+    t.integer "country_id", null: false
     t.integer "duration"
+    t.integer "director_id", null: false
+    t.integer "genre_id", null: false
     t.integer "released"
     t.integer "status"
-    t.integer "director_id", default: 0, null: false
-    t.integer "genre_id", default: 0, null: false
+    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_movies_on_country_id"
     t.index ["director_id"], name: "index_movies_on_director_id"
     t.index ["genre_id"], name: "index_movies_on_genre_id"
   end
 
+  add_foreign_key "directors", "countries"
+  add_foreign_key "directors", "genres"
+  add_foreign_key "movies", "countries"
   add_foreign_key "movies", "directors"
   add_foreign_key "movies", "genres"
 end
