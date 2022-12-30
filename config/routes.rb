@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'home#index'
   resources :movies
+  resources :genres
+  resources :directors
 end
