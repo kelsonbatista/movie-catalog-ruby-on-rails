@@ -277,6 +277,10 @@ a.btn-warning {
   margin-right: 10px !important;
 }
 
+.directors h2 {
+  margin: 50px 0 30px 0 !important;
+}
+
 /* .genres__list-item {
   display: flex;
   align-items: center;
