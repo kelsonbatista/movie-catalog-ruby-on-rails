@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'home#index'
-  resources :movies
+  resources :movies do
+    patch :publish, on: :member # a rota customizada é um membro de recipes
+    patch :release, on: :member # a rota customizada é um membro de recipes
+  end
   resources :genres
   resources :directors
 end
