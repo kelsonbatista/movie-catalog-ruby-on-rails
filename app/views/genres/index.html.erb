@@ -17,7 +17,7 @@
         <% @genres.each do |genre| %>
           <tr class="genres__list-item">
             <td class="genres__list-item-name">
-              <%= genre.name %>
+              <%= link_to genre.name, genre_path(genre) %>
             </td>
             <td class="genres__list-item-actions">
               <%= link_to 'Editar', edit_genre_path(genre), class: "btn btn-warning" %>
