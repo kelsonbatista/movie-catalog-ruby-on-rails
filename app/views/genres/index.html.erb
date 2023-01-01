@@ -1,1 +1,34 @@
-<h1>Gêneros</h1>
+<main>
+  <section class="genres">
+    <div class="genres__title">
+      <h1>Gêneros</h1>
+      <div class="genres__btn-add">
+        <%= link_to 'Adicionar Gênero', new_genre_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <table class="genres__list table table-striped-col">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Editar / Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @genres.each do |genre| %>
+          <tr class="genres__list-item">
+            <td class="genres__list-item-name">
+              <%= genre.name %>
+            </td>
+            <td class="genres__list-item-actions">
+              <%= link_to 'Editar', edit_genre_path(genre), class: "btn btn-warning" %>
+              <%= link_to 'Excluir', 
+                genre_path(genre), 
+                data: { turbo_method: :delete, turbo_confirm: 'Tem certeza?' }, 
+                class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</main>

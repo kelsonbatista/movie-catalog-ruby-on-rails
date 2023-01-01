@@ -1,0 +1,18 @@
+<main>
+  <section class="genres__new">
+    <div class="genres__new-title">
+      <h1>Adicionar Gênero</h1>
+      <div class="movies__btn-add">
+        <%= link_to 'Voltar', genres_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="genres__new-notice movie__field">
+      <% if flash.notice %>
+        <%= flash.notice %>
+      <% end %>
+    </div>
+    <div class="genres__new-fields">
+      <%= render partial: 'form', locals: { genre: @genre } %>
+    </div>
+  </section>
+</main>

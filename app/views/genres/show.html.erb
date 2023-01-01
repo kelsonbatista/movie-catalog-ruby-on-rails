@@ -1,0 +1,17 @@
+<main>
+  <section class="genres__show">
+    <div class="genres__show-title">
+      <h1>Gêneros</h1>
+      <div class="genres__btn-add">
+        <%= link_to 'Adicionar Gênero', new_genre_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="genres__show-group">
+      <div class="genres__show-name">Nome: <%= @genre.name %></div>
+      <div class="genres__show-actions">
+        <%= link_to 'Editar', edit_genre_path(genre), class: "btn btn-primary" %>
+        <%= link_to 'Excluir', genre, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </section>
+</main>
