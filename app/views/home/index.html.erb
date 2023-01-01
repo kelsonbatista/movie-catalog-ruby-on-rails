@@ -1,1 +1,50 @@
-<h1>Home page</h1>
+<header>
+  <div class="featured">
+      <div class="featured__block">
+          <h3 class="featured__title">Ponto de vista</h3>
+          <p class="featured__info">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+                2008 | 4K | 16+
+          </p>
+          <p class="featured__description">Nada pode impedir o atentado ao Presidente dos Estados Unidos que participava de uma conferência na Espanha. Um turista gravou tudo e assim começa a perseguição. Assista agora!</p>
+          <div class="featured__btns">
+              <button class="featured__btn" role="button"><i class="fas fa-play"></i> Assistir agora</button>
+              <button class="featured__btn" role="button"><i class="fas fa-info-circle"></i> Mais informações</button>
+          </div>
+      </div>
+  </div>
+</header>
+<main>
+  <section class="movies">
+    <div class="movies__title main__title-first-page">
+      <h1>Filmes</h1>
+      <div class="movies__btn-add">
+        <%= link_to 'Adicionar Filme', new_movie_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </section>
+  <section class="section__movies-list">
+    <% @all_movies.each do |movies| %>
+      <% if movies.count > 0 %>
+      <div class="movies__list-group">
+        <div class="main__subtitle no-top">
+          <h2><%= movies.first.genre.name %></h2>
+        </div>
+        <div class="movies__list owl-carousel owl-theme"> <!--  owl-carousel owl-theme -->
+          <% movies.each do |movie| %>
+            <div class="">
+              <a href="<%= movie_path(movie) %>" class="movies__list-item">
+                <img src="<%= movie.image.url %>" alt="<%= movie.title %>" class="movies__list-image">
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </section>
+</main>
