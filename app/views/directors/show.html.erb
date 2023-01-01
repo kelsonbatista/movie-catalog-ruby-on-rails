@@ -6,15 +6,35 @@
         <%= link_to 'Adicionar Diretor(a)', new_director_path, class: "btn btn-primary" %>
       </div>
     </div>
-    <div class="directors__show-group">
-      <div class="directors__show-name">Nome: <%= @director.name %></div>
-      <div class="directors__show-country">Nacionalidade: <%= @director.country.name %></div>
-      <div class="directors__show-birthdate">Data de Nascimento:<%= @director.birthdate %></div>
-      <div class="directors__show-genre">Gênero favorito: <%= @director.genre.name %></div>
-      <div class="directors__show-actions">
-        <%= link_to 'Editar', edit_director_path(director), class: "btn btn-primary" %>
-        <%= link_to 'Excluir', director, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %>
-      </div>
-    </div>
+        <table class="directors__list table table-striped-col">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Nacionalidade</th>
+          <th scope="col">Gênero favorito</th>
+          <th scope="col">Editar / Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="directors__list-item">
+          <td class="directors__list-item-name">
+            <%= @director.name %>
+          </td>
+          <td class="directors__list-item-country">
+            <%= @director.country.name %>
+          </td>
+          <td class="directors__list-item-genero">
+            <%= @director.genre.name %>
+          </td>
+          <td class="directors__list-item-actions">
+            <%= link_to 'Editar', edit_director_path(@director.id), class: "btn btn-warning" %>
+            <%= link_to 'Excluir', 
+              director_path(@director.id), 
+              data: { turbo_method: :delete, turbo_confirm: 'Tem certeza?' }, 
+              class: "btn btn-danger" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </main>

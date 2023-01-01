@@ -19,7 +19,7 @@
         <% @directors.each do |director| %>
           <tr class="directors__list-item">
             <td class="directors__list-item-name">
-              <%= director.name %>
+              <%= link_to director.name, director_path(director) %>
             </td>
             <td class="directors__list-item-country">
               <%= director.country.name %>
