@@ -6,12 +6,27 @@
         <%= link_to 'Adicionar Gênero', new_genre_path, class: "btn btn-primary" %>
       </div>
     </div>
-    <div class="genres__show-group">
-      <div class="genres__show-name">Nome: <%= @genre.name %></div>
-      <div class="genres__show-actions">
-        <%= link_to 'Editar', edit_genre_path(genre), class: "btn btn-primary" %>
-        <%= link_to 'Excluir', genre, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %>
-      </div>
-    </div>
+    <table class="genres__list table table-striped-col">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Editar / Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="genres__list-item">
+          <td class="genres__list-item-name">
+            <%= @genre.name %>
+          </td>
+          <td class="genres__list-item-actions">
+            <%= link_to 'Editar', edit_genre_path(@genre.id), class: "btn btn-warning" %>
+            <%= link_to 'Excluir', 
+              genre_path(@genre.id), 
+              data: { turbo_method: :delete, turbo_confirm: 'Tem certeza?' }, 
+              class: "btn btn-danger" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </main>
