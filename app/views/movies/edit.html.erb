@@ -1,0 +1,13 @@
+<main>
+  <section class="movies__new">
+    <div class="movies__new-title">
+      <h1>Editar filme</h1>
+      <div class="movies__btn-add">
+        <%= link_to 'Voltar', root_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="movies__new-fields">
+      <%= render partial: 'form', locals: { movie: @movie } %>
+    </div>
+  </section>
+</main>
