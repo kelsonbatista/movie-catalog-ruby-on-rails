@@ -1,0 +1,20 @@
+<main>
+  <section class="directors__show">
+    <div class="directors__show-title">
+      <h1>Diretores</h1>
+      <div class="directors__btn-add">
+        <%= link_to 'Adicionar Diretor(a)', new_director_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="directors__show-group">
+      <div class="directors__show-name">Nome: <%= @director.name %></div>
+      <div class="directors__show-country">Nacionalidade: <%= @director.country.name %></div>
+      <div class="directors__show-birthdate">Data de Nascimento:<%= @director.birthdate %></div>
+      <div class="directors__show-genre">Gênero favorito: <%= @director.genre.name %></div>
+      <div class="directors__show-actions">
+        <%= link_to 'Editar', edit_director_path(director), class: "btn btn-primary" %>
+        <%= link_to 'Excluir', director, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </section>
+</main>

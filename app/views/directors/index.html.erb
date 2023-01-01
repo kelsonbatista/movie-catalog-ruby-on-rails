@@ -1,1 +1,42 @@
-<h1>Diretores</h1>
+<main>
+  <section class="directors">
+    <div class="directors__title">
+      <h1>Diretores</h1>
+      <div class="directors__btn-add">
+        <%= link_to 'Adicionar Diretor(a)', new_director_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <table class="directors__list table table-striped-col">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Nacionalidade</th>
+          <th scope="col">Gênero favorito</th>
+          <th scope="col">Editar / Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @directors.each do |director| %>
+          <tr class="directors__list-item">
+            <td class="directors__list-item-name">
+              <%= director.name %>
+            </td>
+            <td class="directors__list-item-country">
+              <%= director.country.name %>
+            </td>
+            <td class="directors__list-item-genero">
+              <%= director.genre.name %>
+            </td>
+            <td class="directors__list-item-actions">
+              <%= link_to 'Editar', edit_director_path(director), class: "btn btn-warning" %>
+              <%= link_to 'Excluir', 
+                director_path(director), 
+                data: { turbo_method: :delete, turbo_confirm: 'Tem certeza?' }, 
+                class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</main>

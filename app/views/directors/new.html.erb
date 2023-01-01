@@ -1,0 +1,18 @@
+<main>
+  <section class="directors__new">
+    <div class="directors__new-title">
+      <h1>Adicionar Diretor(a)</h1>
+      <div class="movies__btn-add">
+        <%= link_to 'Voltar', directors_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="directors__new-notice movie__field">
+      <% if flash.notice %>
+        <%= flash.notice %>
+      <% end %>
+    </div>
+    <div class="directors__new-fields">
+      <%= render partial: 'form', locals: { director: @director } %>
+    </div>
+  </section>
+</main>
