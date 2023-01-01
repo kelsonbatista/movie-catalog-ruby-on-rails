@@ -4,6 +4,7 @@
       <h1>Diretores</h1>
       <div class="directors__btn-add">
         <%= link_to 'Adicionar Diretor(a)', new_director_path, class: "btn btn-primary" %>
+        <%= link_to 'Voltar', directors_path, class: "btn btn-primary" %>
       </div>
     </div>
         <table class="directors__list table table-striped-col">
@@ -34,6 +35,44 @@
               class: "btn btn-danger" %>
           </td>
         </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="directors">
+    <div class="directors__title">
+      <h2>Filmes desse Diretor(a)</h2>
+    </div>
+    <table class="directors__list table table-striped-col">
+      <thead>
+        <tr>
+          <th scope="col">Título</th>
+          <th scope="col">Ano</th>
+          <th scope="col">Gênero</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Movie.where(director_id: @director.id).each do |movie| %>
+          <tr class="directors__list-item">
+            <td class="directors__list-item-name">
+              <%= link_to movie.title, movie_path(movie) %>
+            </td>
+            <td class="directors__list-item-country">
+              <%= movie.year %>
+            </td>
+            <td class="directors__list-item-genero">
+              <%= movie.genre.name %>
+            </td>
+            <td class="directors__list-item-actions">
+              <%= link_to 'Ver', movie_path(movie), class: "btn btn-success" %>
+              <%= link_to 'Editar', edit_movie_path(movie), class: "btn btn-warning" %>
+              <%= link_to 'Excluir', 
+                movie_path(movie), 
+                data: { turbo_method: :delete, turbo_confirm: 'Tem certeza?' }, 
+                class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </section>
