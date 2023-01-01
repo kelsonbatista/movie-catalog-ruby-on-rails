@@ -114,8 +114,10 @@ nav ul li {
   text-align: center;
 }
 
-.movies__btn-add a, .movies__show-item-actions a, form .btn {
-  width: 150px !important;
+.movies__btn-add a, .movies__show-item-actions a, form .btn,
+.genres__btn-add a, .genres__show-item-actions a, form .btn,
+.directors__btn-add a, .directors__show-item-actions a, form .btn {
+  width: 170px !important;
   margin: 0 20px 0 0 !important;
 }
 
@@ -271,11 +273,12 @@ a.btn-warning {
 
 .genres__list-item-actions .btn, .directors__list-item-actions .btn {
   width: 80px !important;
-}
-
-.genres__list-item-actions .btn:first-child, .directors__list-item-actions .btn:first-child {
   margin-right: 10px !important;
 }
+
+/* .genres__list-item-actions .btn:first-child, .directors__list-item-actions .btn:first-child {
+  margin-right: 10px !important;
+} */
 
 .directors h2 {
   margin: 50px 0 30px 0 !important;
