@@ -4,6 +4,7 @@
       <h1>Gêneros</h1>
       <div class="genres__btn-add">
         <%= link_to 'Adicionar Gênero', new_genre_path, class: "btn btn-primary" %>
+        <%= link_to 'Voltar', genres_path, class: "btn btn-primary" %>
       </div>
     </div>
     <table class="genres__list table table-striped-col">
@@ -55,6 +56,7 @@
               <%= director.genre.name %>
             </td>
             <td class="directors__list-item-actions">
+              <%= link_to 'Ver', director_path(director), class: "btn btn-success" %>
               <%= link_to 'Editar', edit_director_path(director), class: "btn btn-warning" %>
               <%= link_to 'Excluir', 
                 director_path(director), 
@@ -75,8 +77,8 @@
         <tr>
           <th scope="col">Título</th>
           <th scope="col">Ano</th>
-          <th scope="col">Diretor</th>
-          <th scope="col">Editar / Excluir</th>
+          <th scope="col">Diretor(a)</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -92,6 +94,7 @@
               <%= movie.director.name %>
             </td>
             <td class="directors__list-item-actions">
+              <%= link_to 'Ver', movie_path(movie), class: "btn btn-success" %>
               <%= link_to 'Editar', edit_movie_path(movie), class: "btn btn-warning" %>
               <%= link_to 'Excluir', 
                 movie_path(movie), 
