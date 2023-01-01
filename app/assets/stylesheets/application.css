@@ -249,11 +249,19 @@ table {
   text-align: center;
 }
 
-/* .directors__list  {
+.genres__list a, .directors__list a {
   color: #ccc !important;
-  font-size: 22px;
-  margin: auto;
-} */
+  text-decoration: none;
+}
+
+.genres__list a:hover, .genres__list a.active, .genres__list a.active:hover,
+.directors__list a:hover, .directors__list a.active, .directors__list a.active:hover {
+  color: #fff !important;
+}
+
+a.btn-warning {
+  color: #000 !important;
+}
 
 .directors__list tr {
   color: #ccc !important;
